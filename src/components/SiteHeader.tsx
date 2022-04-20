@@ -54,7 +54,7 @@ export default function SiteHeader() {
       <HeaderContainer>
         <LinkToIndex>
           <Image
-            src="/header-logo-light.png"
+            src="/header-logo-light.webp"
             alt="사이트 로고"
             width={80}
             height={32}
