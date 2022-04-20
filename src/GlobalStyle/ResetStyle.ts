@@ -57,8 +57,8 @@ export default css`
       'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol', sans-serif;
     line-height: 1.5;
-    background-color: #f8f8f8;
-    color: #000;
+    background-color: var(--bg-page);
+    color: var(--text1);
   }
 
   code,
