@@ -6,7 +6,9 @@ export default css`
 
     --bg-page: #f8f8f8;
     --bg-header: #fff;
+    --bg-poll-card: #fff;
 
     --text1: #000;
+    --text2: #808080;
   }
 `;
