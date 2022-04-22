@@ -21,11 +21,9 @@ const ThumbnailHeader = styled.div<{ thumbnail?: string | null }>`
   padding: 10px;
   background-color: transparent;
   isolation: isolate;
-  border-bottom: 1px solid #ddd;
 
   &::before {
-    opacity: 0.7;
-    filter: blur(6px);
+    opacity: 0.5;
     content: '';
     display: block;
     position: absolute;
@@ -34,13 +32,14 @@ const ThumbnailHeader = styled.div<{ thumbnail?: string | null }>`
     width: 100%;
     height: 100%;
     z-index: -1;
+    border-radius: 10px 10px 0 0;
 
     ${({ thumbnail }) =>
       thumbnail == null
         ? `background-image: url('/poll-default-thumbnail.webp');`
         : `background-image: url('${thumbnail}');`}
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
   }
 `;
@@ -87,6 +86,7 @@ const StyledPollCard = styled.article`
 
   &:hover {
     transform: translateY(-8px);
+    background-color: var(--bg-poll-card-hover);
   }
 `;
 
@@ -95,7 +95,6 @@ type Props = {
 };
 
 export default function PollCard({ poll }: Props) {
-  console.log(poll);
   return (
     <LinkTo href={`/polls/${poll.id}`}>
       <StyledPollCard>
