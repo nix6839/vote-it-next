@@ -5,10 +5,6 @@ import Button from './atoms/Button';
 import IconButton from './IconButton';
 import LinkTo from './LinkTo';
 
-const LinkToIndex = styled(LinkTo).attrs({ href: '/' })`
-  line-height: 0;
-`;
-
 const ModalButtonContainer = styled.div`
   display: flex;
   button {
@@ -52,14 +48,14 @@ export default function SiteHeader() {
   return (
     <Header>
       <HeaderContainer>
-        <LinkToIndex>
+        <LinkTo href="/">
           <Image
             src="/header-logo-light.webp"
             alt="사이트 로고"
             width={80}
             height={32}
           />
-        </LinkToIndex>
+        </LinkTo>
         <RightContainer>
           <IconButton aria-label="테마 변경">
             <Icon.Sun size={20} weight="fill" color="#fcd404" />
