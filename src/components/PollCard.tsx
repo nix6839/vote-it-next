@@ -63,6 +63,7 @@ const MetaTopContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 4px;
 `;
 
@@ -74,6 +75,7 @@ const MetaContainer = styled.div`
   padding: 40px 10px;
   gap: 16px;
   justify-content: space-between;
+  flex-grow: 1;
 `;
 
 const StyledPollCard = styled.article`
@@ -83,6 +85,7 @@ const StyledPollCard = styled.article`
   box-shadow: -2px -2px 4px #ececec, 3px 3px 8px #b8b8b8;
   border-radius: 10px;
   transition: transform 0.5s;
+  height: 100%;
 
   &:hover {
     transform: translateY(-8px);
@@ -108,13 +111,12 @@ export default function PollCard({ poll }: Props) {
             </ParticipantCount>
             <Period>
               <RelativeTime dateTime={poll.createdAt} /> 시작
-              {poll.expirationDate && (
-                <>
-                  {' '}
-                  - <RelativeTime dateTime={poll.expirationDate} /> 마감
-                </>
-              )}
             </Period>
+            {poll.expirationDate && (
+              <Period>
+                <RelativeTime dateTime={poll.expirationDate} /> 마감
+              </Period>
+            )}
           </MetaTopContainer>
           <Author className="author">{poll.author.nickname}</Author>
         </MetaContainer>

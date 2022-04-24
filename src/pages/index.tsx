@@ -12,12 +12,24 @@ const PollListWrapper = styled.div`
 `;
 
 const PollList = styled.ul`
-  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   column-gap: 24px;
   row-gap: 20px;
+  transition: max-width 0.5s;
+  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  @media only screen and (max-width: 1200px) {
+    max-width: 900px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: 600px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 type Props = {
