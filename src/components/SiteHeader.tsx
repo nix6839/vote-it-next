@@ -4,15 +4,20 @@ import styled from 'styled-components';
 import Button from './atoms/Button';
 import IconButton from './IconButton';
 import LinkTo from './LinkTo';
+import MainButton from './MainButton';
+
+const LoginButton = styled(Button)`
+  &:hover {
+    color: var(--main-color);
+  }
+`;
 
 const ModalButtonContainer = styled.div`
   display: flex;
+  gap: 6px;
   button {
-    padding: 8px;
+    padding: 8px 10px;
     font-size: 15px;
-    &:hover {
-      color: var(--main-color);
-    }
   }
 `;
 
@@ -41,7 +46,7 @@ const Header = styled.header`
   position: sticky;
   background-color: var(--bg-header);
   box-shadow: 3px 3px 8px #b8b8b8;
-  padding: 8px 16px;
+  padding: 4px 16px;
   top: 0;
   z-index: 10000;
 `;
@@ -63,8 +68,8 @@ export default function SiteHeader() {
             <Icon.Sun size={20} weight="fill" color="#fcd404" />
           </IconButton>
           <ModalButtonContainer>
-            <Button>로그인</Button>
-            <Button>회원가입</Button>
+            <LoginButton>로그인</LoginButton>
+            <MainButton>회원가입</MainButton>
           </ModalButtonContainer>
         </RightContainer>
       </HeaderContainer>

@@ -11,5 +11,7 @@ export default css`
 
     --text1: #000;
     --text2: #808080;
+
+    --text-bg-main: #fff;
   }
 `;
