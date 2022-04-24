@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import * as Icon from 'phosphor-react';
 import styled from 'styled-components';
-import Button from './atoms/Button';
+import Button from './Button';
 import IconButton from './IconButton';
 import LinkTo from './LinkTo';
 import MainButton from './MainButton';

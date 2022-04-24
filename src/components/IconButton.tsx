@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, ReactElement } from 'react';
-import Button from './atoms/Button';
+import Button from './Button';
 
 type ButtonElement = ButtonHTMLAttributes<HTMLButtonElement>;
 

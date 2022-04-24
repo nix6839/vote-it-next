@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from './atoms/Button';
+import Button from './Button';
 
 export default styled(Button)`
   background-color: var(--main-color);
