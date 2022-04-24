@@ -1,7 +1,9 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import { useEffect, useRef } from 'react';
 import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
+import PollLoadingIcon from '../components/icons/PollLoadingIcon';
 import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';
 import * as PollRequest from '../lib/PollRequest';
@@ -9,6 +11,11 @@ import { PollPaginationData } from '../types';
 
 const PollListWrapper = styled.div`
   padding: 20px 16px;
+`;
+
+const MiddlePollLoadingIcon = styled(PollLoadingIcon)`
+  display: block;
+  margin: 0 auto;
 `;
 
 const PollList = styled.ul`
@@ -37,17 +44,36 @@ type Props = {
 };
 
 export default function Home({ initialPollPage }: Props) {
-  const { status, error, data } = useInfiniteQuery(
-    ['inifinitePolls'],
-    ({ pageParam }) => PollRequest.getPagination(pageParam),
-    {
-      initialData: {
-        pages: [initialPollPage],
-        pageParams: [undefined],
+  const { status, error, fetchNextPage, isFetchingNextPage, data } =
+    useInfiniteQuery(
+      ['inifinitePolls'],
+      ({ pageParam }) => PollRequest.getPagination(pageParam),
+      {
+        initialData: {
+          pages: [initialPollPage],
+          pageParams: [undefined],
+        },
+        getNextPageParam: (lastPage) => lastPage.nextCursor,
       },
-      getNextPageParam: (lastPage) => lastPage.nextCursor,
-    },
-  );
+    );
+
+  const intersectRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    const intersectTarget = intersectRef.current;
+    if (intersectTarget === null) {
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        fetchNextPage();
+      }
+    });
+    observer.observe(intersectTarget);
+    return () => {
+      observer.unobserve(intersectTarget);
+    };
+  }, [data, fetchNextPage]);
 
   /**
    * InitialData로 인해서 절대 트리거 되지 않음.
@@ -65,6 +91,8 @@ export default function Home({ initialPollPage }: Props) {
     return error;
   }
 
+  const lastPollId = data.pages.at(-1)?.polls.at(-1)?.id;
+
   return (
     <>
       <Head>
@@ -75,12 +103,16 @@ export default function Home({ initialPollPage }: Props) {
           <PollList>
             {data.pages.map((page) =>
               page.polls.map((poll) => (
-                <li key={poll.id}>
+                <li
+                  key={poll.id}
+                  ref={poll.id === lastPollId ? intersectRef : undefined}
+                >
                   <PollCard poll={poll} />
                 </li>
               )),
             )}
           </PollList>
+          {isFetchingNextPage && <MiddlePollLoadingIcon />}
         </PollListWrapper>
       </Layout>
     </>
