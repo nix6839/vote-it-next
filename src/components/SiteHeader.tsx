@@ -42,6 +42,8 @@ const Header = styled.header`
   background-color: var(--bg-header);
   box-shadow: 3px 3px 8px #b8b8b8;
   padding: 8px 16px;
+  top: 0;
+  z-index: 10000;
 `;
 
 export default function SiteHeader() {
