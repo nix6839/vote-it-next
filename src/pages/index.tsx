@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
+import { useAppDispatch } from '../app/hooks';
+import { show } from '../app/modalSlice';
 import PollLoadingIcon from '../components/icons/PollLoadingIcon';
 import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';
@@ -44,6 +46,7 @@ type Props = {
 };
 
 export default function Home({ initialPollPage }: Props) {
+  const dispatch = useAppDispatch();
   const { status, error, fetchNextPage, isFetchingNextPage, data } =
     useInfiniteQuery(
       ['inifinitePolls'],
@@ -118,6 +121,9 @@ export default function Home({ initialPollPage }: Props) {
             )}
           </PollList>
           {isFetchingNextPage && <MiddlePollLoadingIcon />}
+          <button type="button" onClick={() => dispatch(show())}>
+            Modal Button
+          </button>
         </PollListWrapper>
       </Layout>
     </>
