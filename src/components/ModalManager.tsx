@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useAppSelector } from '../app/hooks';
 import { selectIsVisible } from '../app/modalSlice';
+import SignUpModal from './SignUpModal';
 
 export default function ModalManager() {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -15,7 +16,7 @@ export default function ModalManager() {
     return null;
   }
 
-  const modalContent = <div>Hello, modal!</div>;
+  const modalContent = <SignUpModal />;
 
   return ReactDOM.createPortal(
     modalContent,

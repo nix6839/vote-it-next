@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
 import { useAppDispatch } from '../app/hooks';
-import { show } from '../app/modalSlice';
 import PollLoadingIcon from '../components/icons/PollLoadingIcon';
 import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';
@@ -121,9 +120,6 @@ export default function Home({ initialPollPage }: Props) {
             )}
           </PollList>
           {isFetchingNextPage && <MiddlePollLoadingIcon />}
-          <button type="button" onClick={() => dispatch(show())}>
-            Modal Button
-          </button>
         </PollListWrapper>
       </Layout>
     </>

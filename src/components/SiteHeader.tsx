@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import * as Icon from 'phosphor-react';
+import { useCallback } from 'react';
 import styled from 'styled-components';
+import { useAppDispatch } from '../app/hooks';
+import { showModal } from '../app/modalSlice';
 import Button from './Button';
 import IconButton from './IconButton';
 import LinkTo from './LinkTo';
@@ -52,6 +55,12 @@ const Header = styled.header`
 `;
 
 export default function SiteHeader() {
+  const dispatch = useAppDispatch();
+
+  const handleSignUpButtonClick = useCallback(() => {
+    dispatch(showModal());
+  }, [dispatch]);
+
   return (
     <Header>
       <HeaderContainer>
@@ -68,8 +77,10 @@ export default function SiteHeader() {
             <Icon.Sun size={20} weight="fill" color="#fcd404" />
           </IconButton>
           <ModalButtonContainer>
-            <LoginButton>로그인</LoginButton>
-            <MainButton>회원가입</MainButton>
+            <LoginButton type="button">로그인</LoginButton>
+            <MainButton type="button" onClick={handleSignUpButtonClick}>
+              회원가입
+            </MainButton>
           </ModalButtonContainer>
         </RightContainer>
       </HeaderContainer>

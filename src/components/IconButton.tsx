@@ -1,5 +1,10 @@
 import React, { ButtonHTMLAttributes, ReactElement } from 'react';
+import styled from 'styled-components';
 import Button from './Button';
+
+const StyledButton = styled(Button)`
+  display: inline-flex;
+`;
 
 type ButtonElement = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -10,10 +15,10 @@ type Props = {
 
 export default function IconButton({ children, ...buttonProps }: Props) {
   return (
-    <Button {...buttonProps}>
+    <StyledButton type="button" {...buttonProps}>
       {React.cloneElement(children, {
         'aria-hidden': true,
       })}
-    </Button>
+    </StyledButton>
   );
 }
