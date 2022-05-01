@@ -87,9 +87,9 @@ export default function SignUpModal() {
           <Icon.X size={20} />
         </CloseButton>
         <SignUpForm onSubmit={handleFormSubmit} noValidate>
-          <Input type="email" placeholder="이메일" />
-          <Input type="text" placeholder="닉네임" />
-          <Input type="password" placeholder="비밀번호" />
+          <Input type="email" placeholder="이메일" required />
+          <Input type="text" placeholder="닉네임" required />
+          <Input type="password" placeholder="비밀번호" required />
           <SubmitButton type="submit">회원가입</SubmitButton>
         </SignUpForm>
       </StyledModal>
