@@ -3,11 +3,10 @@ import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useInfiniteQuery } from 'react-query';
 import styled from 'styled-components';
-import { useAppDispatch } from '../app/hooks';
 import PollLoadingIcon from '../components/icons/PollLoadingIcon';
 import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';
-import * as PollRequest from '../lib/PollRequest';
+import * as PollRequest from '../lib/request/PollRequest';
 import { PollPaginationData } from '../types';
 
 const PollListWrapper = styled.div`
@@ -45,7 +44,6 @@ type Props = {
 };
 
 export default function Home({ initialPollPage }: Props) {
-  const dispatch = useAppDispatch();
   const { status, error, fetchNextPage, isFetchingNextPage, data } =
     useInfiniteQuery(
       ['inifinitePolls'],

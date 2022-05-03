@@ -13,8 +13,11 @@ export default css`
     --text1: #000;
     --text2: #808080;
 
+    --text-error: #ff0000;
+
     --text-bg-main: #fff;
 
     --border-modal-input: #e9e9e9;
+    --border-modal-input-error: #f24e1e;
   }
 `;
