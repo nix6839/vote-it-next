@@ -2,12 +2,11 @@
   "extends": [
     "airbnb",
     "airbnb-typescript",
+    "airbnb/hooks",
     "next/core-web-vitals",
     "prettier"
   ],
   "rules": {
-    // Use `newNextLinkBehavior`, it doesn't need passhref
-    "@next/next/link-passhref": "off",
     // Often used by react-hook-forms, next.js, component that override HTML tag, etc...
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": [
