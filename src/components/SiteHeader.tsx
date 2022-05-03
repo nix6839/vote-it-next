@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import * as Icon from 'phosphor-react';
 import { useCallback } from 'react';
 import styled from 'styled-components';
@@ -6,7 +7,6 @@ import { useAppDispatch } from '../app/hooks';
 import { showModal } from '../app/modalSlice';
 import Button from './Button';
 import IconButton from './IconButton';
-import LinkTo from './LinkTo';
 import MainButton from './MainButton';
 
 const LoginButton = styled(Button)`
@@ -64,14 +64,14 @@ export default function SiteHeader() {
   return (
     <Header>
       <HeaderContainer>
-        <LinkTo href="/">
+        <Link href="/">
           <Image
             src="/header-logo-light.webp"
             alt="사이트 로고"
             width={80}
             height={32}
           />
-        </LinkTo>
+        </Link>
         <RightContainer>
           <IconButton aria-label="테마 변경">
             <Icon.Sun size={20} weight="fill" color="#fcd404" />

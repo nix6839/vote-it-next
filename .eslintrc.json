@@ -1,3 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"]
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    // Use `newNextLinkBehavior`, it doesn't need passhref
+    "@next/next/link-passhref": "off"
+  }
 }

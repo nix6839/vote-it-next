@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 import { PollSummary } from '../types';
-import LinkTo from './LinkTo';
 import RelativeTime from './RelativeTime';
 
 const PollSubject = styled.h2`
@@ -99,7 +99,7 @@ type Props = {
 
 export default function PollCard({ poll }: Props) {
   return (
-    <LinkTo href={`/polls/${poll.id}`}>
+    <Link href={`/polls/${poll.id}`}>
       <StyledPollCard>
         <ThumbnailHeader thumbnail={poll.picture}>
           <PollSubject>{poll.subject}</PollSubject>
@@ -121,6 +121,6 @@ export default function PollCard({ poll }: Props) {
           <Author className="author">{poll.author.nickname}</Author>
         </MetaContainer>
       </StyledPollCard>
-    </LinkTo>
+    </Link>
   );
 }
