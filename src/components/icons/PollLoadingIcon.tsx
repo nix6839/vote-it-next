@@ -2,7 +2,7 @@ type Props = {
   className?: string;
 };
 
-export default function PollLoadingIcon({ className }: Props) {
+export default function PollLoadingIcon({ className = undefined }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

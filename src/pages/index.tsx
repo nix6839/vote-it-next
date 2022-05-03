@@ -62,7 +62,7 @@ export default function Home({ initialPollPage }: Props) {
   useEffect(() => {
     const intersectTarget = intersectRef.current;
     if (intersectTarget === null) {
-      return;
+      return undefined;
     }
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
