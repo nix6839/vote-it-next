@@ -23,7 +23,6 @@
       {
         "props": true,
         "ignorePropertyModificationsFor": [
-          "ctx", // for DocumentContext in `_document.tsx`
           "state", // for Redux with immer
           "acc", // for reduce accumulators
           "accumulator" // for reduce accumulators
