@@ -2,54 +2,14 @@ import { css } from '@emotion/react';
 
 // eslint-disable-next-line @emotion/syntax-preference
 export default css`
-  html,
-  body,
-  p,
-  ol,
-  ul,
-  li,
-  dl,
-  dt,
-  dd,
-  blockquote,
-  figure,
-  fieldset,
-  legend,
-  textarea,
-  pre,
-  iframe,
-  hr,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    padding: 0;
-  }
-
-  button,
-  input,
-  select {
-    margin: 0;
-    color: inherit;
-  }
-
-  ul {
-    list-style: none;
-  }
-
   *,
   *::before,
   *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-  }
-
-  #__next {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: inherit;
+    color: inherit;
   }
 
   body {
@@ -62,11 +22,21 @@ export default css`
     color: var(--text1);
   }
 
+  #__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   code,
   pre,
   samp,
   var {
     font-family: 'JetBrains Mono NL', 'JetBrains Mono', D2Coding, monospace;
+  }
+
+  ul {
+    list-style: none;
   }
 
   a {
