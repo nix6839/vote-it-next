@@ -11,76 +11,76 @@ import * as AuthRequest from '../lib/request/AuthRequest';
 import IconButton from './IconButton';
 import MainButton from './MainButton';
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: brightness(50%);
-  z-index: var(--z-index-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const ModalOverlay = styled.div({
+  position: 'fixed',
+  top: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  backdropFilter: 'brightness(50%)',
+  zIndex: 'var(--z-index-modal)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 
-const StyledModal = styled.section`
-  background-color: #fff;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-`;
+const StyledModal = styled.section({
+  backgroundColor: '#fff',
+  padding: '16px',
+  display: 'flex',
+  flexDirection: 'column',
+  borderRadius: '10px',
+});
 
-const CloseButton = styled(IconButton)`
-  align-self: flex-end;
-`;
+const CloseButton = styled(IconButton)({
+  alignSelf: 'flex-end',
+});
 
-const Input = styled.input`
-  text-align: center;
-  border: 3px solid var(--border-modal-input);
-  font-size: 16px;
-  padding: 10px;
-  outline-style: none;
+const Input = styled.input({
+  textAlign: 'center',
+  border: '3px solid var(--border-modal-input)',
+  fontSize: '16px',
+  padding: '10px',
+  outlineStyle: 'none',
 
-  &:focus {
-    border-color: var(--main-color);
-  }
+  '&:focus': {
+    borderColor: 'var(--main-color)',
+  },
 
-  &[aria-invalid='true'] {
-    border-color: var(--border-modal-input-error);
-  }
-`;
+  "&[aria-invalid='true']": {
+    borderColor: 'var(--border-modal-input-error)',
+  },
+});
 
-const ErrorMessage = styled.strong`
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-error);
-`;
+const ErrorMessage = styled.strong({
+  textAlign: 'center',
+  fontSize: '14px',
+  color: 'var(--text-error)',
+});
 
-const InputLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-`;
+const InputLabel = styled.label({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '3px',
+});
 
-const SubmitButton = styled(MainButton)`
-  padding: 10px;
-  font-size: 14px;
-  width: 100%;
-  &:disabled {
-    background-color: var(--main-color-hover);
-    cursor: wait;
-  }
-`;
+const SubmitButton = styled(MainButton)({
+  padding: '10px',
+  fontSize: '14px',
+  width: '100%',
+  '&:disabled': {
+    backgroundColor: 'var(--main-color-hover)',
+    cursor: 'wait',
+  },
+});
 
-const SignUpFieldSet = styled.fieldset`
-  display: flex;
-  flex-direction: column;
-  padding: 30px 40px;
-  gap: 20px;
-  border: none;
-`;
+const SignUpFieldSet = styled.fieldset({
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '30px 40px',
+  gap: '20px',
+  border: 'none',
+})
 
 type Inputs = {
   email: string;

@@ -9,50 +9,50 @@ import Button from './Button';
 import IconButton from './IconButton';
 import MainButton from './MainButton';
 
-const LoginButton = styled(Button)`
-  &:hover {
-    color: var(--main-color);
-  }
-`;
+const LoginButton = styled(Button)({
+  '&:hover': {
+    color: 'var(--main-color)',
+  },
+});
 
-const ModalButtonContainer = styled.div`
-  display: flex;
-  gap: 6px;
-  button {
-    padding: 8px 10px;
-    font-size: 15px;
-  }
-`;
+const ModalButtonContainer = styled.div({
+  display: 'flex',
+  gap: '6px',
+  button: {
+    padding: '8px 10px',
+    fontSize: '15px',
+  },
+});
 
-const RightContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  > button {
-    padding: 8px;
-    border-radius: 50%;
-    &:hover {
-      background-color: var(--main-color);
-    }
-  }
-`;
+const RightContainer = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  '> button': {
+    padding: '8px',
+    borderRadius: '50%',
+    '&:hover': {
+      backgroundColor: 'var(--main-color)',
+    },
+  },
+});
 
-const HeaderContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
+const HeaderContainer = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  maxWidth: '1200px',
+  margin: '0 auto',
+});
 
-const Header = styled.header`
-  position: sticky;
-  background-color: var(--bg-header);
-  box-shadow: 3px 3px 8px #b8b8b8;
-  padding: 4px 16px;
-  top: 0;
-  z-index: var(--z-index-header);
-`;
+const Header = styled.header({
+  position: 'sticky',
+  backgroundColor: 'var(--bg-header)',
+  boxShadow: '3px 3px 8px #b8b8b8',
+  padding: '4px 16px',
+  top: 0,
+  zIndex: 'var(--z-index-header)',
+});
 
 export default function SiteHeader() {
   const dispatch = useAppDispatch();

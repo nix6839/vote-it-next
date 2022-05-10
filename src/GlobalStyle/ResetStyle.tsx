@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 
+// eslint-disable-next-line @emotion/syntax-preference
 export default css`
   html,
   body,

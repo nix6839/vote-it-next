@@ -3,9 +3,9 @@ import { ReactNode } from 'react';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
-const Main = styled.main`
-  flex-grow: 1;
-`;
+const Main = styled.main({
+  flexGrow: 1,
+});
 
 type Props = {
   children: ReactNode;
