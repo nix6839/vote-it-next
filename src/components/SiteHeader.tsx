@@ -18,6 +18,7 @@ const LoginButton = styled(Button)({
 const ModalButtonContainer = styled.div({
   display: 'flex',
   gap: '6px',
+
   button: {
     padding: '8px 10px',
     fontSize: '15px',
@@ -28,9 +29,11 @@ const RightContainer = styled.div({
   display: 'flex',
   alignItems: 'center',
   gap: '4px',
+
   '> button': {
     padding: '8px',
     borderRadius: '50%',
+
     '&:hover': {
       backgroundColor: 'var(--main-color)',
     },

@@ -5,6 +5,7 @@ const MainButton = styled(Button)({
   backgroundColor: 'var(--main-color)',
   borderRadius: '16px',
   color: 'var(--text-bg-main)',
+
   '&:hover': {
     backgroundColor: 'var(--main-color-hover)',
   },

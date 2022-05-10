@@ -22,6 +22,7 @@ export default css`
     color: var(--text1);
   }
 
+  /* stylelint-disable-next-line selector-id-pattern */
   #__next {
     min-height: 100vh;
     display: flex;
@@ -32,7 +33,7 @@ export default css`
   pre,
   samp,
   var {
-    font-family: 'JetBrains Mono NL', 'JetBrains Mono', D2Coding, monospace;
+    font-family: 'JetBrains Mono NL', 'JetBrains Mono', 'D2Coding', monospace;
   }
 
   ul {

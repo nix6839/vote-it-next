@@ -16,7 +16,7 @@ const ModalOverlay = styled.div({
   top: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  backgroundColor: 'rgb(0 0 0 / 20%)',
   backdropFilter: 'brightness(50%)',
   zIndex: 'var(--z-index-modal)',
   display: 'flex',
@@ -68,6 +68,7 @@ const SubmitButton = styled(MainButton)({
   padding: '10px',
   fontSize: '14px',
   width: '100%',
+
   '&:disabled': {
     backgroundColor: 'var(--main-color-hover)',
     cursor: 'wait',
