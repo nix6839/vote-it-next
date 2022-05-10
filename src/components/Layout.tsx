@@ -1,5 +1,5 @@
+import styled from '@emotion/styled';
 import { ReactNode } from 'react';
-import styled from 'styled-components';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 

@@ -1,9 +1,9 @@
+import styled from '@emotion/styled';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Icon from 'phosphor-react';
 import { MouseEventHandler, useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import styled from 'styled-components';
 import * as yup from 'yup';
 import { useAppDispatch } from '../app/hooks';
 import { hideModal } from '../app/modalSlice';

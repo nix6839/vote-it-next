@@ -1,5 +1,5 @@
+import styled from '@emotion/styled';
 import Link from 'next/link';
-import styled from 'styled-components';
 import { PollSummary } from '../types';
 import RelativeTime from './RelativeTime';
 

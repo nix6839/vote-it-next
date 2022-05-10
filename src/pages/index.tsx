@@ -1,8 +1,8 @@
+import styled from '@emotion/styled';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { useInfiniteQuery } from 'react-query';
-import styled from 'styled-components';
 import PollLoadingIcon from '../components/icons/PollLoadingIcon';
 import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';

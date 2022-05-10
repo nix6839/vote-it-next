@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-export default styled.button`
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-`;
+const Button = styled.button({
+  padding: 0,
+  cursor: 'pointer',
+  background: 'none',
+  border: 'none',
+});
+
+export default Button;

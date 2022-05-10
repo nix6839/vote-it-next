@@ -1,8 +1,8 @@
+import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as Icon from 'phosphor-react';
 import { useCallback } from 'react';
-import styled from 'styled-components';
 import { useAppDispatch } from '../app/hooks';
 import { showModal } from '../app/modalSlice';
 import Button from './Button';
