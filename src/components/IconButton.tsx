@@ -1,10 +1,10 @@
+import styled from '@emotion/styled';
 import React, { ButtonHTMLAttributes, ReactElement } from 'react';
-import styled from 'styled-components';
 import Button from './Button';
 
-const StyledButton = styled(Button)`
-  display: inline-flex;
-`;
+const StyledButton = styled(Button)({
+  display: 'inline-flex',
+});
 
 type ButtonElement = ButtonHTMLAttributes<HTMLButtonElement>;
 

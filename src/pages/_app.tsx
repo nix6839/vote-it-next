@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <GlobalStyle />
+      {GlobalStyle}
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           <Component {...pageProps} />

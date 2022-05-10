@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  compiler: {
-    styledComponents: true,
-  },
   experimental: {
     newNextLinkBehavior: true,
+    emotion: true,
   },
   async rewrites() {
     return [

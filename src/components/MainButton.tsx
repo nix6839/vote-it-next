@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Button from './Button';
 
-export default styled(Button)`
-  background-color: var(--main-color);
-  border-radius: 16px;
-  color: var(--text-bg-main);
-  &:hover {
-    background-color: var(--main-color-hover);
-  }
-`;
+const MainButton = styled(Button)({
+  backgroundColor: 'var(--main-color)',
+  borderRadius: '16px',
+  color: 'var(--text-bg-main)',
+  '&:hover': {
+    backgroundColor: 'var(--main-color-hover)',
+  },
+});
+
+export default MainButton;

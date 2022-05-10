@@ -1,4 +1,5 @@
 {
+  "plugins": ["@emotion"],
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -7,6 +8,7 @@
     "prettier"
   ],
   "rules": {
+    "@emotion/syntax-preference": ["error", "object"],
     // Often used by react-hook-forms, next.js, component that override HTML tag, etc...
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": [
