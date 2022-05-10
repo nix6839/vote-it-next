@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint --max-warnings 0 'src/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "csslint": "stylelint src/**/*.{ts,tsx}",
+    "csslint:fix": "stylelint --fix src/**/*.{ts,tsx}",
     "format": "prettier --write --ignore-path .gitignore '**/*.{ts,tsx,js,json}'",
     "format:check": "prettier --check --ignore-path .gitignore '**/*.{ts,tsx,js,json}'"
   },
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@emotion/eslint-plugin": "11.7.0",
     "@next/eslint-plugin-next": "12.1.6",
+    "@stylelint/postcss-css-in-js": "0.38.0",
     "@types/node": "16.11.33",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.3",
@@ -45,6 +48,9 @@
     "eslint-plugin-react": "github:jsx-eslint/eslint-plugin-react",
     "eslint-plugin-react-hooks": "4.5.0",
     "prettier": "2.6.2",
+    "stylelint": "14.8.2",
+    "stylelint-config-prettier-scss": "0.0.1",
+    "stylelint-config-standard-scss": "3.0.0",
     "typescript": "4.6.4"
   }
 }
