@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -12,12 +13,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {GlobalStyle}
-      <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
-          <Component {...pageProps} />
-          <ModalManager />
-        </QueryClientProvider>
-      </Provider>
+      <ChakraProvider>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <Component {...pageProps} />
+            <ModalManager />
+          </QueryClientProvider>
+        </Provider>
+      </ChakraProvider>
     </>
   );
 }
