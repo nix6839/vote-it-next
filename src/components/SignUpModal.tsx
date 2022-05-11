@@ -81,7 +81,7 @@ const SignUpFieldSet = styled.fieldset({
   padding: '30px 40px',
   gap: '20px',
   border: 'none',
-})
+});
 
 type Inputs = {
   email: string;
