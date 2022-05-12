@@ -11,17 +11,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <>
-      {GlobalStyle}
-      <ChakraProvider>
-        <Provider store={store}>
-          <QueryClientProvider client={queryClient}>
-            <Component {...pageProps} />
-            <ModalManager />
-          </QueryClientProvider>
-        </Provider>
-      </ChakraProvider>
-    </>
+    <ChakraProvider>
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          {GlobalStyle}
+          <Component {...pageProps} />
+          <ModalManager />
+        </QueryClientProvider>
+      </Provider>
+    </ChakraProvider>
   );
 }
 
