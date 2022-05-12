@@ -1,11 +1,7 @@
-import styled from '@emotion/styled';
+import { Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
-
-const Main = styled.main({
-  flexGrow: 1,
-});
 
 type Props = {
   children: ReactNode;
@@ -15,7 +11,9 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <SiteHeader />
-      <Main>{children}</Main>
+      <Box as="main" flexGrow={1}>
+        {children}
+      </Box>
       <SiteFooter />
     </>
   );
