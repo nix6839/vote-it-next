@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          {GlobalStyle}
+          <GlobalStyle />
           <Component {...pageProps} />
           <ModalManager />
         </QueryClientProvider>
