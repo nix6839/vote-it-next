@@ -12,8 +12,8 @@ type Props = TimeHTMLAttributes<HTMLTimeElement> &
   Required<Pick<TimeHTMLAttributes<HTMLTimeElement>, 'dateTime'>> &
   BoxProps;
 
-export default function RelativeTime(timeProps: Props) {
-  const { dateTime } = timeProps;
+export default function RelativeTime(props: Props) {
+  const { dateTime } = props;
 
   const relativeTime = useMemo(
     () =>
@@ -21,7 +21,7 @@ export default function RelativeTime(timeProps: Props) {
     [dateTime],
   );
   return (
-    <Box as="time" {...timeProps}>
+    <Box as="time" {...props}>
       {relativeTime}
     </Box>
   );
