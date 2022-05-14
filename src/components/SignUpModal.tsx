@@ -1,3 +1,11 @@
+import {
+  Button,
+  FormControl,
+  FormErrorMessage,
+  IconButton,
+  Input,
+  VStack,
+} from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Icon from 'phosphor-react';
@@ -8,8 +16,6 @@ import * as yup from 'yup';
 import { useAppDispatch } from '../app/hooks';
 import { hideModal } from '../app/modalSlice';
 import * as AuthRequest from '../lib/request/AuthRequest';
-import IconButton from './IconButton';
-import MainButton from './MainButton';
 
 const ModalOverlay = styled.div({
   position: 'fixed',
@@ -30,57 +36,6 @@ const StyledModal = styled.section({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '10px',
-});
-
-const CloseButton = styled(IconButton)({
-  alignSelf: 'flex-end',
-});
-
-const Input = styled.input({
-  textAlign: 'center',
-  border: '3px solid var(--border-modal-input)',
-  fontSize: '16px',
-  padding: '10px',
-  outlineStyle: 'none',
-
-  '&:focus': {
-    borderColor: 'var(--main-color)',
-  },
-
-  "&[aria-invalid='true']": {
-    borderColor: 'var(--border-modal-input-error)',
-  },
-});
-
-const ErrorMessage = styled.strong({
-  textAlign: 'center',
-  fontSize: '14px',
-  color: 'var(--text-error)',
-});
-
-const InputLabel = styled.label({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '3px',
-});
-
-const SubmitButton = styled(MainButton)({
-  padding: '10px',
-  fontSize: '14px',
-  width: '100%',
-
-  '&:disabled': {
-    backgroundColor: 'var(--main-color-hover)',
-    cursor: 'wait',
-  },
-});
-
-const SignUpFieldSet = styled.fieldset({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '30px 40px',
-  gap: '20px',
-  border: 'none',
 });
 
 type Inputs = {
@@ -147,46 +102,74 @@ export default function SignUpModal() {
   return (
     <ModalOverlay onClick={handleClickOutside}>
       <StyledModal onClick={handleClickModal}>
-        <CloseButton aria-label="모달 창 닫기" onClick={handleClickCloseButton}>
+        <IconButton
+          aria-label="모달 창 닫기"
+          onClick={handleClickCloseButton}
+          variant="ghost"
+          alignSelf="flex-end"
+        >
           <Icon.X size={20} />
-        </CloseButton>
-        <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
-          <SignUpFieldSet disabled={signUpMutation.isLoading}>
-            <InputLabel>
-              <Input
-                {...register('email')}
-                type="email"
-                placeholder="이메일"
-                required
-                aria-invalid={formState.errors.email !== undefined}
-              />
-              <ErrorMessage>{formState.errors.email?.message}</ErrorMessage>
-            </InputLabel>
-            <InputLabel>
-              <Input
-                {...register('password')}
-                type="password"
-                placeholder="비밀번호"
-                required
-                aria-invalid={formState.errors.password !== undefined}
-              />
-              <ErrorMessage>{formState.errors.password?.message}</ErrorMessage>
-            </InputLabel>
-            <InputLabel>
-              <Input
-                {...register('nickname')}
-                type="text"
-                placeholder="닉네임"
-                required
-                aria-invalid={formState.errors.nickname !== undefined}
-              />
-              <ErrorMessage>{formState.errors.nickname?.message}</ErrorMessage>
-            </InputLabel>
-            <SubmitButton type="submit">
-              회원가입 {signUpMutation.isLoading && '중...'}
-            </SubmitButton>
-          </SignUpFieldSet>
-        </form>
+        </IconButton>
+        <VStack
+          as="form"
+          onSubmit={handleSubmit(handleFormSubmit)}
+          noValidate
+          paddingX={12}
+          paddingTop={4}
+          paddingBottom={6}
+          spacing={4}
+        >
+          <FormControl
+            isInvalid={formState.errors.email !== undefined}
+            isRequired
+          >
+            <Input
+              {...register('email')}
+              type="email"
+              placeholder="이메일"
+              variant="flushed"
+            />
+            <FormErrorMessage>
+              {formState.errors.email?.message}
+            </FormErrorMessage>
+          </FormControl>
+          <FormControl
+            isInvalid={formState.errors.password !== undefined}
+            isRequired
+          >
+            <Input
+              {...register('password')}
+              type="password"
+              placeholder="비밀번호"
+              variant="flushed"
+            />
+            <FormErrorMessage>
+              {formState.errors.password?.message}
+            </FormErrorMessage>
+          </FormControl>
+          <FormControl
+            isInvalid={formState.errors.nickname !== undefined}
+            isRequired
+          >
+            <Input
+              {...register('nickname')}
+              type="text"
+              placeholder="닉네임"
+              variant="flushed"
+            />
+            <FormErrorMessage>
+              {formState.errors.nickname?.message}
+            </FormErrorMessage>
+          </FormControl>
+          <Button
+            type="submit"
+            isLoading={signUpMutation.isLoading}
+            loadingText="회원가입 중..."
+            width="full"
+          >
+            회원가입
+          </Button>
+        </VStack>
       </StyledModal>
     </ModalOverlay>
   );
