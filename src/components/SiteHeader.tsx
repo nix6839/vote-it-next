@@ -22,7 +22,7 @@ export default function SiteHeader() {
         top={0}
         backgroundColor="var(--bg-header)"
         boxShadow="lg"
-        zIndex="var(--z-index-header)"
+        zIndex="sticky"
       >
         <Container paddingY={1} maxWidth="container.xl">
           <HStack justifyContent="space-between" spacing={0}>
