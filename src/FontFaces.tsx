@@ -20,7 +20,7 @@ const fontWeights: [number, string][] = [
   [700, 'Bold'],
 ];
 
-export default function Fonts() {
+export default function FontFaces() {
   return (
     <Global
       styles={fontWeights.map(([weight, suffix]) =>
