@@ -20,7 +20,7 @@ export default function SiteHeader() {
         as="header"
         position="sticky"
         top={0}
-        backgroundColor="var(--bg-header)"
+        backgroundColor="bg.header"
         boxShadow="lg"
         zIndex="sticky"
       >
@@ -40,7 +40,7 @@ export default function SiteHeader() {
                 variant="ghost"
                 isRound
                 padding={1}
-                // colorScheme="var(--main-color)"
+                colorScheme="brand"
               >
                 <Icon.Sun size={20} weight="fill" color="#fcd404" />
               </IconButton>
@@ -53,7 +53,7 @@ export default function SiteHeader() {
                   variant="solid"
                   borderRadius="full"
                   onClick={onOpen}
-                  // colorScheme="var(--main-color-hover)"
+                  colorScheme="brand"
                 >
                   회원가입
                 </Button>

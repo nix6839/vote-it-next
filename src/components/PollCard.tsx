@@ -48,14 +48,14 @@ export default function PollCard({ poll }: Props) {
       <VStack
         spacing={0}
         alignItems="stretch"
-        backgroundColor="var(--bg-poll-card)"
+        backgroundColor="bg.poll_card.default"
         boxShadow="-2px -2px 4px #ececec, 3px 3px 8px #b8b8b8"
         borderRadius={10}
         transition="transform 0.5s"
         height="full"
         _hover={{
           transform: 'translateY(-8px)',
-          backgroundColor: 'var(--bg-poll-card-hover)',
+          backgroundColor: 'bg.poll_card.hover',
         }}
       >
         <ThumbnailHeader thumbnail={poll.picture}>
@@ -92,7 +92,7 @@ export default function PollCard({ poll }: Props) {
             as="address"
             fontSize="sm"
             fontStyle="normal"
-            color="var(--text2)"
+            color="text.secondary"
             className="author"
           >
             {poll.author.nickname}

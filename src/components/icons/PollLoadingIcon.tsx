@@ -6,7 +6,7 @@ export default createIcon({
   defaultProps: {
     width: '200px',
     height: '200px',
-    stroke: 'var(--main-color)',
+    stroke: 'brand.400',
   },
   path: (
     <path
