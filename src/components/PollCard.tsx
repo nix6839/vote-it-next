@@ -1,42 +1,8 @@
 import { Heading, Text, VStack } from '@chakra-ui/react';
-import styled from '@emotion/styled';
 import Link from 'next/link';
 import { PollSummary } from '../types';
 import RelativeTime from './RelativeTime';
-
-const ThumbnailHeader = styled.div<{ thumbnail?: string | null }>(
-  {
-    height: '200px',
-    display: 'flex',
-    position: 'relative',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '10px',
-    backgroundColor: 'transparent',
-    isolation: 'isolate',
-
-    '&::before': {
-      opacity: 0.5,
-      content: "''",
-      display: 'block',
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      width: '100%',
-      height: '100%',
-      zIndex: -1,
-      borderRadius: '10px 10px 0 0',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    },
-  },
-  ({ thumbnail }) => ({
-    '&::before': {
-      backgroundImage: `url('${thumbnail ?? 'poll-default-thumbnail.webp'}')`,
-    },
-  }),
-);
+import ThumbnailContent from './ThumbnailContent';
 
 type Props = {
   poll: PollSummary;
@@ -58,7 +24,12 @@ export default function PollCard({ poll }: Props) {
           backgroundColor: 'bg.poll_card.hover',
         }}
       >
-        <ThumbnailHeader thumbnail={poll.picture}>
+        <ThumbnailContent
+          thumbnail={poll.picture}
+          alignItems="center"
+          justifyContent="center"
+          padding={2}
+        >
           <Heading
             as="h2"
             fontSize="2xl"
@@ -68,7 +39,7 @@ export default function PollCard({ poll }: Props) {
           >
             {poll.subject}
           </Heading>
-        </ThumbnailHeader>
+        </ThumbnailContent>
         <VStack
           spacing={4}
           justifyContent="space-between"
