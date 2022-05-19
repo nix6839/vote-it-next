@@ -91,12 +91,7 @@ export default function Home({ initialPollPage }: Props) {
     return error;
   }
 
-  const lastPage = data.pages[data.pages.length - 1] as
-    | PollPaginationData
-    | undefined;
-  const lastPolls = lastPage?.polls;
-  const lastPoll = lastPolls?.[lastPolls.length - 1];
-  const lastPollId = lastPoll?.id;
+  const lastPollId = data.pages.at(-1)?.polls.at(-1)?.id;
 
   return (
     <>
