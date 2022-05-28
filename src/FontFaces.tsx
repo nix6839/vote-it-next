@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { Global } from '@emotion/react';
 
 const getFontFace = (weight: number, suffix: string) => ({
   '@font-face': {
@@ -20,6 +20,12 @@ const fontWeights: [number, string][] = [
   [700, 'Bold'],
 ];
 
-export default css(
-  fontWeights.map(([weight, suffix]) => getFontFace(weight, suffix)),
-);
+export default function FontFaces() {
+  return (
+    <Global
+      styles={fontWeights.map(([weight, suffix]) =>
+        getFontFace(weight, suffix),
+      )}
+    />
+  );
+}

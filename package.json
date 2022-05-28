@@ -14,19 +14,19 @@
     "format:check": "prettier --check --ignore-path .gitignore '**/*.{ts,tsx,js,json}'"
   },
   "dependencies": {
+    "@chakra-ui/react": "2.1.2",
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
     "@hookform/resolvers": "2.8.10",
-    "@reduxjs/toolkit": "1.8.2",
     "axios": "0.27.2",
     "dayjs": "1.11.2",
+    "framer-motion": "6.3.4",
     "next": "12.1.6",
     "phosphor-react": "1.4.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "7.31.3",
     "react-query": "4.0.0-beta.15",
-    "react-redux": "8.0.2",
     "yup": "0.32.11"
   },
   "devDependencies": {

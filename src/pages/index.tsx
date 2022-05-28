@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { Center, Container, List, ListItem } from '@chakra-ui/react';
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
@@ -8,36 +8,6 @@ import Layout from '../components/Layout';
 import PollCard from '../components/PollCard';
 import * as PollRequest from '../lib/request/PollRequest';
 import { PollPaginationData } from '../types';
-
-const PollListWrapper = styled.div({
-  padding: '20px 16px',
-});
-
-const MiddlePollLoadingIcon = styled(PollLoadingIcon)({
-  display: 'block',
-  margin: '0 auto',
-});
-
-const PollList = styled.ul({
-  margin: '0 auto',
-  display: 'grid',
-  columnGap: '24px',
-  rowGap: '20px',
-  transition: 'max-width 0.5s',
-  maxWidth: '1200px',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  '@media only screen and (max-width: 1200px)': {
-    maxWidth: '900px',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-  },
-  '@media only screen and (max-width: 768px)': {
-    maxWidth: '600px',
-    gridTemplateColumns: 'repeat(2, 1fr)',
-  },
-  '@media only screen and (max-width: 480px)': {
-    gridTemplateColumns: '1fr',
-  },
-});
 
 type Props = {
   initialPollPage: PollPaginationData;
@@ -99,21 +69,34 @@ export default function Home({ initialPollPage }: Props) {
         <title>Vote it!</title>
       </Head>
       <Layout>
-        <PollListWrapper>
-          <PollList>
+        <Container maxWidth="container.xl" marginTop={5} marginBottom={10}>
+          <List
+            display="grid"
+            gap={6}
+            gridTemplateColumns={[
+              '1fr',
+              'repeat(2, 1fr)',
+              'repeat(3, 1fr)',
+              'repeat(4, 1fr)',
+            ]}
+          >
             {data.pages.map((page) =>
               page.polls.map((poll) => (
-                <li
+                <ListItem
                   key={poll.id}
                   ref={poll.id === lastPollId ? intersectRef : undefined}
                 >
                   <PollCard poll={poll} />
-                </li>
+                </ListItem>
               )),
             )}
-          </PollList>
-          {isFetchingNextPage && <MiddlePollLoadingIcon />}
-        </PollListWrapper>
+          </List>
+          {isFetchingNextPage && (
+            <Center>
+              <PollLoadingIcon />
+            </Center>
+          )}
+        </Container>
       </Layout>
     </>
   );
